@@ -11,7 +11,7 @@ Database
 # Getting started
 - Clone the repository
 ```
-git clone git@bitbucket.org:erik-zume/cobalt-service.git
+git clone git@github.com:ezos86/smartcar-be.git
 ```
 - Install dependencies
 ```
