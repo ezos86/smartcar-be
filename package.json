@@ -1,0 +1,63 @@
+{
+  "name": "smartcar-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "dependencies": {
+    "cls-hooked": "^4.2.2",
+    "cors": "2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "4.17.1",
+    "js-yaml": "^3.13.1",
+    "knex": "^0.20.7",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.24.0",
+    "node": "^8.13.0",
+    "node-uuid": "^1.4.8",
+    "oas-tools": "^2.1.7",
+    "perfy": "^1.1.5",
+    "prom-client": "11.5.3",
+    "swagger-express-middleware": "^2.0.4",
+    "swagger-ui-express": "^4.1.2",
+    "winston": "^3.2.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.3",
+    "@types/chai-http": "4.2.0",
+    "@types/cls-hooked": "^4.3.0",
+    "@types/debug": "4.1.5",
+    "@types/express": "4.17.1",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.7.11",
+    "@types/node-uuid": "0.0.28",
+    "chai": "4.2.0",
+    "chai-http": "^4.3.0",
+    "cpx": "1.5.0",
+    "mocha": "^6.2.1",
+    "nodemon": "^1.19.3",
+    "shelljs": "^0.8.3",
+    "sinon": "^7.5.0",
+    "supertest": "4.0.2",
+    "ts-mocha": "6.0.0",
+    "ts-node": "8.4.1",
+    "tslint": "5.20.0",
+    "typescript": "3.6.3"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:copy": "cpx \"src/**/*.yaml\" dist/ && cpx \"src/config/*.json\" dist/config",
+    "start": "DEBUG=app:* node dist/index.js",
+    "build:live": "npm run clean && tsc -p tsconfig.json && npm run build:copy",
+    "test": "DEBUG=app:* TS_NODE_CACHE=false ./node_modules/.bin/mocha --require ts-node/register --recursive './test/**/*.spec.ts' --exit",
+    "build:dev": "nodemon --exec ts-node -- ./src/index.ts",
+    "dev": "DEBUG=app:* TS_NODE_CACHE=false npm run build:dev",
+    "lint": "tslint -p tsconfig.json",
+    "testOne": "TS_NODE_CACHE=false ./node_modules/.bin/mocha --require ts-node/register",
+    "prepare": "npm run clean && tsc -p tsconfig.json && npm run build:copy"
+  },
+  "engines": {
+    "node": ">6.11.0"
+  }
+}
