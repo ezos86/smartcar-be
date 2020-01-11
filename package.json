@@ -17,6 +17,7 @@
     "node-uuid": "^1.4.8",
     "oas-tools": "^2.1.7",
     "perfy": "^1.1.5",
+    "pg": "^7.17.1",
     "prom-client": "11.5.3",
     "swagger-express-middleware": "^2.0.4",
     "swagger-ui-express": "^4.1.2",

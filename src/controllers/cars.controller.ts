@@ -3,11 +3,12 @@ import resources from '../resources';
 const car_controller = {
 
     /**
-     * @name getCarList
-     * @description
-     */
+    * @name getCarList
+    * @description
+    */
     getCarList: async () => {
         resources.cars.getCars().then((cars) => {
+            console.log('ksksks', cars);
             return cars;
         }).catch((error)=>{
             throw Error(error);
@@ -15,12 +16,12 @@ const car_controller = {
     },
 
     /**
-     * @name getCarData
-     * @description
-     */
-    getCarData: async (wktPolygon) => {
-        resources.cars.calculateAreaSquareMiles(wktPolygon).then((area_square_miles) => {
-            return area_square_miles;
+    * @name getCarData
+    * @description
+    */
+    getCarData: async (car_id) => {
+        resources.cars.getCar(car_id).then((response) => {
+            return response;
         }).catch((error)=>{
             throw Error(error);
         });
@@ -30,9 +31,9 @@ const car_controller = {
     * @name addCar
     * @description
     */
-    addCar: async (wktPolygon) => {
-        resources.cars.calculateAreaSquareMiles(wktPolygon).then((area_square_miles) => {
-            return area_square_miles;
+    addCar: async (car_json) => {
+        resources.cars.addCar(car_json).then((response) => {
+            return response
         }).catch((error)=>{
             throw Error(error);
         });

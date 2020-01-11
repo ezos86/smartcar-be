@@ -3,10 +3,11 @@ import controllers from '../controllers';
 const router = Router();
 
 router.get('/', (req, res) => {
-    controllers.cars.getCarList().then((resp) => {
-        res.json({msg:"Cars.", data: {'foo': 'bar'}});
+    controllers.cars.getCarList().then((response) => {
+        console.log('hiiii', response);
+        res.json({msg:"Cars.", data: response});
     }).catch((error) => {
-        res.json({msg:"Cars.", error: error});
+        res.json({msg:"Error getting car list.", error: error});
     });    
 });
 
@@ -15,10 +16,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    controllers.cars.addCar(req.body.data).then((resp)=>{
-        res.json({msg:"Car added." + req.params.id, data: {'foo': 'bar'}});
+    controllers.cars.addCar(req.body.data).then((response)=>{
+        res.json({msg:"Car added." + req.params.id, data: response});
     }).catch((error)=>{
-        res.json({msg:"Car added." + req.params.id, data: {'foo': 'bar'}});
+        res.json({msg:"Error adding car", error:error});
     });
 });
 

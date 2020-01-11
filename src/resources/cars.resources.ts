@@ -1,38 +1,42 @@
 import services from '../services';
 
-const restaurant_resources = {
+const car_resources = {
     
     getCars: async () => {
-        services.knex('cars').then((resp)=>{
-            return resp;
+        console.log('here');
+        services.knex('cars').then((response)=>{
+            console.log('hello');
+            return response;
         }).catch((error)=>{
+            console.log(error);
             return error;
         });
     },
 
     getCar: async (id) => {
-        services.knex('cars').where('id', id).first().then((resp)=>{
-            return resp;
+        services.knex('cars').where('id', id).first().then((response) => {
+            console.log('hello');
+            return response;
         }).catch((error) => {
             return error;
         });
     },
 
     addCar: async (car) => {
-        services.knex('cars').insert(car).then((resp)=>{
-            return resp;
+        services.knex('cars').insert(car).then((response)=>{
+            return response;
         }).catch(function(error) {
             return error;
         });
     },
 
     removeCar: async (car_id) => {
-        services.knex('cars').where('id', car_id).del().then((data)=>{
-            return resp;
+        services.knex('cars').where('id', car_id).del().then((response)=>{
+            return response;
         }).catch(function(error) {
             return error;
         });
     }
 }
 
-export default restaurant_resources;
+export default car_resources;
