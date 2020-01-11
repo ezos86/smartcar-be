@@ -7,11 +7,10 @@ const car_controller = {
     * @description
     */
     getCarList: async () => {
-        resources.cars.getCars().then((cars) => {
-            console.log('ksksks', cars);
+        return resources.cars.getCars().then((cars) => {
             return cars;
         }).catch((error)=>{
-            throw Error(error);
+            return error;
         });
     },
 

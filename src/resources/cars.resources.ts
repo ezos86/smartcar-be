@@ -3,12 +3,10 @@ import services from '../services';
 const car_resources = {
     
     getCars: async () => {
-        console.log('here');
-        services.knex('cars').then((response)=>{
-            console.log('hello');
+        return services.knex('cars').then((response) => {
+            console.log('hello', response);
             return response;
-        }).catch((error)=>{
-            console.log(error);
+        }).catch((error) => {
             return error;
         });
     },
