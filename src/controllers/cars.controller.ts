@@ -6,9 +6,9 @@ const car_controller = {
      * @name getCarList
      * @description
      */
-    getCarList: async (states, counties, wkt) => {
-        resources.cars.getRawRestaurantCategoryCounts(states, counties, wkt).then((raw_category_count) => {
-            return raw_category_count;
+    getCarList: async () => {
+        resources.cars.getCars().then((cars) => {
+            return cars;
         }).catch((error)=>{
             throw Error(error);
         });

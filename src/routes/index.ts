@@ -1,4 +1,4 @@
-import carRoutes from "./cars";
+import carRoutes from "./cars.routes";
 
 const routes = {
     cars: carRoutes

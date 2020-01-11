@@ -2,8 +2,8 @@ import services from '../services';
 
 const restaurant_resources = {
     
-    getCars: async (states, counties, wkt) => {
-        services.knex('cars').where('id', id).first().then((resp)=>{
+    getCars: async () => {
+        services.knex('cars').then((resp)=>{
             return resp;
         }).catch((error)=>{
             return error;

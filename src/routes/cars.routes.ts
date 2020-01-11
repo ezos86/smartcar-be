@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         res.json({msg:"Car added." + req.params.id, data: {'foo': 'bar'}});
     }).catch((error)=>{
         res.json({msg:"Car added." + req.params.id, data: {'foo': 'bar'}});
-    });    
+    });
 });
 
 export default router;
