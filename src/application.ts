@@ -24,6 +24,7 @@ const swaggerDocument = YAML.load(__dirname +'/docs/docs.yaml');
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Route Setup
+app.use('/users', routes.users);
 app.use('/cars', routes.cars);
 
 export default app;

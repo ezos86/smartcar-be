@@ -24,6 +24,7 @@ app.use('*', function (req, res, next) {
 var swaggerDocument = YAML.load(__dirname + '/docs/docs.yaml');
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Route Setup
+app.use('/users', routes_1.default.users);
 app.use('/cars', routes_1.default.cars);
 exports.default = app;
 //# sourceMappingURL=application.js.map

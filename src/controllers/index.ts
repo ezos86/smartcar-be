@@ -1,5 +1,7 @@
 import carController from '../controllers/cars.controller';
+import userController from './users.controller';
 const controllers = {
-    cars: carController,
+    users: userController,
+    cars: carController
 };
 export default controllers;
