@@ -4,7 +4,6 @@ const car_resources = {
     
     getCars: async () => {
         return services.knex('cars').then((response) => {
-            console.log('hello', response);
             return response;
         }).catch((error) => {
             return error;
@@ -13,7 +12,6 @@ const car_resources = {
 
     getCar: async (id) => {
         services.knex('cars').where('id', id).first().then((response) => {
-            console.log('hello');
             return response;
         }).catch((error) => {
             return error;

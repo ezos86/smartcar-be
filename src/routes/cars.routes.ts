@@ -4,7 +4,6 @@ const router = Router();
 
 router.get('/', (req, res) => {
     controllers.cars.getCarList().then((response) => {
-        console.log('hiiii', response);
         res.json({msg:"Cars.", data: response});
     }).catch((error) => {
         res.json({msg:"Error getting car list.", error: error});
@@ -12,7 +11,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    res.json({msg:"Car data." + req.params.id, data: {'foo': 'bar'}});
+    controllers.cars.getCarData(req.params.id).then((response) => {
+        res.json({msg:"Cars.", data: response});
+    }).catch((error) => {
+        res.json({msg:"Error getting car list.", error: error});
+    }); 
 });
 
 router.post('/', (req, res) => {
