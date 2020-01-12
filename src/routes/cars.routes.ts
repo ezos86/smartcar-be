@@ -14,7 +14,7 @@ router.get('/:id', (req, res) => {
     controllers.cars.getCarData(req.params.id).then((response) => {
         res.json({msg:"Cars.", data: response});
     }).catch((error) => {
-        res.json({msg:"Error getting car list.", error: error});
+        res.json({msg:"Error getting car data.", error: error});
     }); 
 });
 
@@ -23,6 +23,14 @@ router.post('/', (req, res) => {
         res.json({msg:"Car added." + req.params.id, data: response});
     }).catch((error)=>{
         res.json({msg:"Error adding car", error:error});
+    });
+});
+
+router.delete('/', (req, res) => {
+    controllers.cars.removeCar(req.params.id).then((response)=>{
+        res.json({msg:"Car removed." + req.params.id, data: response});
+    }).catch((error)=>{
+        res.json({msg:"Error removing car", error:error});
     });
 });
 

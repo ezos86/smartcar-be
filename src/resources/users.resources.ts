@@ -4,7 +4,6 @@ const user_resources = {
     
     getUsers: async () => {
         return services.knex('users').then((response) => {
-            console.log('hello', response);
             return response;
         }).catch((error) => {
             return error;
@@ -13,7 +12,6 @@ const user_resources = {
 
     getUser: async (id) => {
         services.knex('users').where('id', id).first().then((response) => {
-            console.log('hello');
             return response;
         }).catch((error) => {
             return error;
