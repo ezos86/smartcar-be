@@ -12,23 +12,32 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     controllers.cars.getCarData(req.params.id).then((response) => {
-        res.json({msg:"Cars.", data: response});
+        res.json({msg:"Cars data.", data: response});
     }).catch((error) => {
         res.json({msg:"Error getting car data.", error: error});
     }); 
 });
 
 router.post('/', (req, res) => {
-    controllers.cars.addCar(req.body.data).then((response)=>{
-        res.json({msg:"Car added." + req.params.id, data: response});
+    controllers.cars.addCar(req.body).then((response)=>{
+        res.json({msg:"Car added.", data: response});
     }).catch((error)=>{
         res.json({msg:"Error adding car", error:error});
     });
 });
 
-router.delete('/', (req, res) => {
+// Commented out to show return if update was sent.
+// router.put('/:id', (req, res) => {
+//     controllers.cars.updateCar(req.params.id, req.body).then((response)=>{
+//         res.json({msg:"Car updated.", data: response});
+//     }).catch((error)=>{
+//         res.json({msg:"Error updating car", error:error});
+//     });
+// });
+
+router.delete('/:id', (req, res) => {
     controllers.cars.removeCar(req.params.id).then((response)=>{
-        res.json({msg:"Car removed." + req.params.id, data: response});
+        res.json({msg:"Car removed.", data: response});
     }).catch((error)=>{
         res.json({msg:"Error removing car", error:error});
     });

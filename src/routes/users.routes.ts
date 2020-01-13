@@ -4,7 +4,6 @@ const router = Router();
 
 router.get('/', (req, res) => {
     controllers.users.getUserList().then((response) => {
-        console.log('hiiii', response);
         res.json({msg:"Users.", data: response});
     }).catch((error) => {
         res.json({msg:"Error getting user list.", error: error});

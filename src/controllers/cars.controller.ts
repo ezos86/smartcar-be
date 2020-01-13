@@ -19,7 +19,7 @@ const car_controller = {
     * @description
     */
     getCarData: async (car_id) => {
-        resources.cars.getCar(car_id).then((response) => {
+        return resources.cars.getCar(car_id).then((response) => {
             return response;
         }).catch((error)=>{
             throw Error(error);
@@ -31,8 +31,20 @@ const car_controller = {
     * @description
     */
     addCar: async (car_json) => {
-        resources.cars.addCar(car_json).then((response) => {
+        return resources.cars.addCar(car_json).then((response) => {
             return response
+        }).catch((error)=>{
+            throw Error(error);
+        });
+    },
+
+    /**
+    * @name addCar
+    * @description
+    */
+    updateCar: async (car_id, car_json) => {
+        return resources.cars.updateCar(car_id, car_json).then((response) => {
+            return response;
         }).catch((error)=>{
             throw Error(error);
         });
@@ -44,7 +56,7 @@ const car_controller = {
     * @description
     */
     removeCar: async (car_id) => {
-        resources.cars.removeCar(car_id).then((msg) => {
+        return resources.cars.removeCar(car_id).then((msg) => {
             return msg;
         }).catch((error)=>{
             throw Error(error);
