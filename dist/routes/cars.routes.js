@@ -5,20 +5,38 @@ var controllers_1 = require("../controllers");
 var router = express_1.Router();
 router.get('/', function (req, res) {
     controllers_1.default.cars.getCarList().then(function (response) {
-        console.log('hiiii', response);
         res.json({ msg: "Cars.", data: response });
     }).catch(function (error) {
         res.json({ msg: "Error getting car list.", error: error });
     });
 });
 router.get('/:id', function (req, res) {
-    res.json({ msg: "Car data." + req.params.id, data: { 'foo': 'bar' } });
+    controllers_1.default.cars.getCarData(req.params.id).then(function (response) {
+        res.json({ msg: "Cars data.", data: response });
+    }).catch(function (error) {
+        res.json({ msg: "Error getting car data.", error: error });
+    });
 });
 router.post('/', function (req, res) {
-    controllers_1.default.cars.addCar(req.body.data).then(function (response) {
-        res.json({ msg: "Car added." + req.params.id, data: response });
+    controllers_1.default.cars.addCar(req.body).then(function (response) {
+        res.json({ msg: "Car added.", data: response });
     }).catch(function (error) {
         res.json({ msg: "Error adding car", error: error });
+    });
+});
+// Commented out to show return if update was sent.
+// router.put('/:id', (req, res) => {
+//     controllers.cars.updateCar(req.params.id, req.body).then((response)=>{
+//         res.json({msg:"Car updated.", data: response});
+//     }).catch((error)=>{
+//         res.json({msg:"Error updating car", error:error});
+//     });
+// });
+router.delete('/:id', function (req, res) {
+    controllers_1.default.cars.removeCar(req.params.id).then(function (response) {
+        res.json({ msg: "Car removed.", data: response });
+    }).catch(function (error) {
+        res.json({ msg: "Error removing car", error: error });
     });
 });
 exports.default = router;

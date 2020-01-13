@@ -16,7 +16,6 @@ paths:
       requestBody:
         description: Car Information.
         required: true
-        x-name: data
         content:
           application/json:
             schema:
@@ -55,27 +54,65 @@ paths:
             application/json:
               schema: 
                 type: array
-                items: 
-                  type: string
+                items:
+                  properties:
+                    msg: string
+                    data: 
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        make:
+                          type: string
+                        model:
+                          type: string
+                        color:
+                          type: string
   /cars/{id}:
     get:
       summary: Returns a car.
-      description: Optional extended description in CommonMark or HTML.
       parameters:
         - in: path
           name: id
-          type: boolean
+          type: string
           schema:
-            type: boolean
+            type: string
           required: true
           description: ID of the car
           example: 22
       responses:
         '200':    # status code
-          description: A JSON array of user names
+          description: A JSON object of car information.
           content:
             application/json:
               schema: 
-                type: array
-                items: 
-                  type: string
+                type: object 
+                properties:
+                  name:
+                    type: string
+                  make:
+                    type: string
+                  model:
+                    type: string
+                  color:
+                    type: string               
+    delete:
+      summary: Removes a car.
+      description: Removes a car.
+      parameters:
+        - in: path
+          name: id
+          type: string
+          schema:
+            type: string
+          required: true
+          description: ID of the car
+          example: 22
+      responses:
+        '200':    # status code
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  msg: string

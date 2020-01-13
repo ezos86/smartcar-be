@@ -57,12 +57,11 @@ var car_controller = {
     */
     getCarData: function (car_id) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            resources_1.default.cars.getCar(car_id).then(function (response) {
-                return response;
-            }).catch(function (error) {
-                throw Error(error);
-            });
-            return [2 /*return*/];
+            return [2 /*return*/, resources_1.default.cars.getCar(car_id).then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    throw Error(error);
+                })];
         });
     }); },
     /**
@@ -71,12 +70,24 @@ var car_controller = {
     */
     addCar: function (car_json) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            resources_1.default.cars.addCar(car_json).then(function (response) {
-                return response;
-            }).catch(function (error) {
-                throw Error(error);
-            });
-            return [2 /*return*/];
+            return [2 /*return*/, resources_1.default.cars.addCar(car_json).then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    throw Error(error);
+                })];
+        });
+    }); },
+    /**
+    * @name addCar
+    * @description
+    */
+    updateCar: function (car_id, car_json) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, resources_1.default.cars.updateCar(car_id, car_json).then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    throw Error(error);
+                })];
         });
     }); },
     /**
@@ -85,12 +96,11 @@ var car_controller = {
     */
     removeCar: function (car_id) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            resources_1.default.cars.removeCar(car_id).then(function (msg) {
-                return msg;
-            }).catch(function (error) {
-                throw Error(error);
-            });
-            return [2 /*return*/];
+            return [2 /*return*/, resources_1.default.cars.removeCar(car_id).then(function (msg) {
+                    return msg;
+                }).catch(function (error) {
+                    throw Error(error);
+                })];
         });
     }); }
 };

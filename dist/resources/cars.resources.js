@@ -40,43 +40,48 @@ var services_1 = require("../services");
 var car_resources = {
     getCars: function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, services_1.default.knex('cars').then(function (response) {
-                    console.log('hello', response);
+            services_1.default.knex('cars').then(function (response) {
+                return response;
+            }).catch(function (error) {
+                return error;
+            });
+            return [2 /*return*/];
+        });
+    }); },
+    getCar: function (car_id) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, services_1.default.knex('cars').where({ "id": car_id }).first().then(function (response) {
                     return response;
                 }).catch(function (error) {
                     return error;
                 })];
         });
     }); },
-    getCar: function (id) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            services_1.default.knex('cars').where('id', id).first().then(function (response) {
-                console.log('hello');
-                return response;
-            }).catch(function (error) {
-                return error;
-            });
-            return [2 /*return*/];
-        });
-    }); },
     addCar: function (car) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            services_1.default.knex('cars').insert(car).then(function (response) {
-                return response;
-            }).catch(function (error) {
-                return error;
-            });
-            return [2 /*return*/];
+            return [2 /*return*/, services_1.default.knex('cars').insert(car).then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    return error;
+                })];
+        });
+    }); },
+    updateCar: function (car_id, car) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, services_1.default.knex('cars').where({ id: car_id }).update(car).then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    return error;
+                })];
         });
     }); },
     removeCar: function (car_id) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            services_1.default.knex('cars').where('id', car_id).del().then(function (response) {
-                return response;
-            }).catch(function (error) {
-                return error;
-            });
-            return [2 /*return*/];
+            return [2 /*return*/, services_1.default.knex('cars').where('id', car_id).del().then(function (response) {
+                    return response;
+                }).catch(function (error) {
+                    return error;
+                })];
         });
     }); }
 };

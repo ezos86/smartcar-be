@@ -41,7 +41,6 @@ var user_resources = {
     getUsers: function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, services_1.default.knex('users').then(function (response) {
-                    console.log('hello', response);
                     return response;
                 }).catch(function (error) {
                     return error;
@@ -51,7 +50,6 @@ var user_resources = {
     getUser: function (id) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             services_1.default.knex('users').where('id', id).first().then(function (response) {
-                console.log('hello');
                 return response;
             }).catch(function (error) {
                 return error;

@@ -5,7 +5,6 @@ var controllers_1 = require("../controllers");
 var router = express_1.Router();
 router.get('/', function (req, res) {
     controllers_1.default.users.getUserList().then(function (response) {
-        console.log('hiiii', response);
         res.json({ msg: "Users.", data: response });
     }).catch(function (error) {
         res.json({ msg: "Error getting user list.", error: error });
